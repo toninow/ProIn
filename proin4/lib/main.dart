@@ -57,7 +57,6 @@ Future<List> _login() async {
     }else if(datauser[0]['id_tipo']=='2'){
       Navigator.pushReplacementNamed(context, '/bodegaPage');
     }
-
     setState(() {
           username= datauser[0]['cuenta_usuario'];
         });
