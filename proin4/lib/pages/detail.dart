@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:proin4/pages/listarUsuarios.dart';
-
+import './editdata.dart';
 import 'package:http/http.dart' as http;
-
+import './listarUsuarios.dart';
 
 class Detail extends StatefulWidget {
   List list;
@@ -15,7 +14,7 @@ class Detail extends StatefulWidget {
 class _DetailState extends State<Detail> {
 
 void deleteData(){
-  var url="http://192.168.1.4/ticket_reservation/mobile/deleteData.php";
+  var url="http://192.168.1.4/ticket_reservation/deleteData.php";
   http.post(url, body: {
     'id_usuario': widget.list[widget.index]['id_usuario']
   });
@@ -23,10 +22,10 @@ void deleteData(){
 
 void confirm (){
   AlertDialog alertDialog = new AlertDialog(
-    content: new Text("Esta seguto de eliminar '${widget.list[widget.index]['cuenta_usuario']}'"),
+    content: new Text("estas seguro que deseas eleminarlo? '${widget.list[widget.index]['cuenta_usuario']}'"),
     actions: <Widget>[
       new RaisedButton(
-        child: new Text("OK Eliminado!",style: new TextStyle(color: Colors.black),),
+        child: new Text("OK ELIMINALO !",style: new TextStyle(color: Colors.black),),
         color: Colors.red,
         onPressed: (){
           deleteData();
@@ -59,34 +58,30 @@ void confirm (){
           child: new Center(
             child: new Column(
               children: <Widget>[
+
                 new Padding(padding: const EdgeInsets.only(top: 30.0),),
-                new Text(widget.list[widget.index]['cuenta_usuario'], style: new TextStyle(fontSize: 20.0),),
-                Divider(),
-                new Text("Nivel : ${widget.list[widget.index]['nombre']}", style: new TextStyle(fontSize: 18.0),),
+                new Text(widget.list[widget.index]['nombre_usuario'], style: new TextStyle(fontSize: 20.0),),
+                new Text("password_usuario : ${widget.list[widget.index]['password_usuario']}", style: new TextStyle(fontSize: 18.0),),
+                new Text("id_tipo : ${widget.list[widget.index]['id_tipo']}", style: new TextStyle(fontSize: 18.0),),
                 new Padding(padding: const EdgeInsets.only(top: 30.0),),
 
                 new Row(
                   mainAxisSize: MainAxisSize.min,
                   children: <Widget>[
-                  //   new RaisedButton(
-                  //   child: new Text("EDITAR"),                  
-                  //   color: Colors.blueAccent,
-                  //   shape: new RoundedRectangleBorder(
-                  //           borderRadius: new BorderRadius.circular(30.0)),
-                  //   onPressed: ()=>Navigator.of(context).push(
-                  //       new MaterialPageRoute(
-                  //         builder: (BuildContext context)=> new EditData(list: widget.list, index: widget.index),
-                  //       )
-                  //     ),                    
-                  // ),
-                  VerticalDivider(),
-                  new RaisedButton(
-                    child: new Text("ELIMINAR"),                  
-                    color: Colors.redAccent,
-                    shape: new RoundedRectangleBorder(
-                            borderRadius: new BorderRadius.circular(30.0)),
-                    onPressed: ()=>confirm(),                
-                  ),
+                    new RaisedButton(
+                      child: new Text("EDITAR"),
+                      color: Colors.green,
+                      onPressed: ()=>Navigator.of(context).push(
+                        new MaterialPageRoute(
+                          builder: (BuildContext context)=>new EditData(list: widget.list, index: widget.index,),
+                        )
+                      ),
+                    ),
+                    new RaisedButton(
+                      child: new Text("BORRAR"),
+                      color: Colors.red,
+                      onPressed: ()=>confirm(),
+                    ),
                   ],
                 )
               ],
