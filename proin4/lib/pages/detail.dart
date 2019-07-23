@@ -14,18 +14,19 @@ class Detail extends StatefulWidget {
 class _DetailState extends State<Detail> {
 
 void deleteData(){
-  var url="http://192.168.1.4/ticket_reservation/deleteData.php";
+  var url="http://192.168.43.162/ticket_reservation/mobile/deleteData.php";
   http.post(url, body: {
     'id_usuario': widget.list[widget.index]['id_usuario']
   });
 }
+
 
 void confirm (){
   AlertDialog alertDialog = new AlertDialog(
     content: new Text("estas seguro que deseas eleminarlo? '${widget.list[widget.index]['cuenta_usuario']}'"),
     actions: <Widget>[
       new RaisedButton(
-        child: new Text("OK ELIMINALO !",style: new TextStyle(color: Colors.black),),
+        child: new Text("OK ELIMINARLO !",style: new TextStyle(color: Colors.black),),
         color: Colors.red,
         onPressed: (){
           deleteData();
@@ -61,8 +62,8 @@ void confirm (){
 
                 new Padding(padding: const EdgeInsets.only(top: 30.0),),
                 new Text(widget.list[widget.index]['cuenta_usuario'], style: new TextStyle(fontSize: 20.0),),
-                new Text("Nombre de usuario : ${widget.list[widget.index]['nombre']}", style: new TextStyle(fontSize: 18.0),),
                 new Text("Tipo de usuario : ${widget.list[widget.index]['nombre_tipo_usuario']}", style: new TextStyle(fontSize: 18.0),),
+                new Text("Nombre : ${widget.list[widget.index]['nombre_usuario']}", style: new TextStyle(fontSize: 18.0),),
                 new Padding(padding: const EdgeInsets.only(top: 30.0),),
 
                 new Row(
@@ -78,7 +79,7 @@ void confirm (){
                       ),
                     ),
                     new RaisedButton(
-                      child: new Text("BORRAR"),
+                      child: new Text("ELIMINAR"),
                       color: Colors.red,
                       onPressed: ()=>confirm(),
                     ),
