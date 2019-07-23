@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
 class AddData extends StatefulWidget {
@@ -14,7 +14,7 @@ class _AddDataState extends State<AddData> {
   var _formKey = GlobalKey<FormState>();
 
   void addData() {
-    var url = "http://10.0.2.2/tienda/adddata.php";
+    var url = "http://192.168.1.4/ticket_reservation/adddata.php";
 
     http.post(url, body: {
       "username": controllerUsername.text,
