@@ -50,7 +50,7 @@ void confirm (){
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-      appBar: new AppBar(title: new Text("${widget.list[widget.index]['item_name']}")),
+      appBar: new AppBar(title: new Text("${widget.list[widget.index]['cuenta_usuario']}")),
       body: new Container(
         height: 270.0, 
         padding: const EdgeInsets.all(20.0),
