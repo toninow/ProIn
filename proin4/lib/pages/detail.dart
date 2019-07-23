@@ -60,9 +60,9 @@ void confirm (){
               children: <Widget>[
 
                 new Padding(padding: const EdgeInsets.only(top: 30.0),),
-                new Text(widget.list[widget.index]['nombre_usuario'], style: new TextStyle(fontSize: 20.0),),
-                new Text("password_usuario : ${widget.list[widget.index]['password_usuario']}", style: new TextStyle(fontSize: 18.0),),
-                new Text("id_tipo : ${widget.list[widget.index]['id_tipo']}", style: new TextStyle(fontSize: 18.0),),
+                new Text(widget.list[widget.index]['cuenta_usuario'], style: new TextStyle(fontSize: 20.0),),
+                new Text("Nombre de usuario : ${widget.list[widget.index]['nombre']}", style: new TextStyle(fontSize: 18.0),),
+                new Text("Tipo de usuario : ${widget.list[widget.index]['nombre_tipo_usuario']}", style: new TextStyle(fontSize: 18.0),),
                 new Padding(padding: const EdgeInsets.only(top: 30.0),),
 
                 new Row(
