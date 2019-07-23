@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'package:proyecto/pages/detail.dart';
+import 'package:proin4/pages/detail.dart';
 
 import 'dart:async';
 import 'dart:convert';

@@ -3,8 +3,8 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'package:proyecto/bodegaPage.dart';
-import 'package:proyecto/powerPage.dart';
+import 'package:proin4/bodegaPage.dart';
+import 'package:proin4/powerPage.dart';
 
 void main() => runApp(new MyApp());
 
