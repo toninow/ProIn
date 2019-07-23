@@ -13,7 +13,7 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   Future<List> getData() async {
-    final response = await http.get("http://192.168.1.4/ticket_reservation/mobile/getData.php");
+    final response = await http.get("http://10.0.2.2/ticket_reservation/mobile/getData.php");
     return json.decode(response.body);
   }
 
