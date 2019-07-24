@@ -51,10 +51,10 @@ void confirm (){
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-      appBar: new AppBar(title: new Text("${widget.list[widget.index]['cuenta_usuario']}")),
+      appBar: new AppBar(title: new Text("información de ${widget.list[widget.index]['cuenta_usuario']}")),
       body: new Container(
         height: 270.0, 
-        padding: const EdgeInsets.all(20.0),
+        padding: const EdgeInsets.all(5.0),
         child: new Card(
           child: new Center(
             child: new Column(
@@ -63,7 +63,10 @@ void confirm (){
                 new Padding(padding: const EdgeInsets.only(top: 30.0),),
                 new Text(widget.list[widget.index]['cuenta_usuario'], style: new TextStyle(fontSize: 20.0),),
                 new Text("Tipo de usuario : ${widget.list[widget.index]['nombre_tipo_usuario']}", style: new TextStyle(fontSize: 18.0),),
-                 new Text("Nombre : ${widget.list[widget.index]['nombre']}", style: new TextStyle(fontSize: 18.0),),
+                new Text("Nombre : ${widget.list[widget.index]['nombre']}", style: new TextStyle(fontSize: 18.0),),
+                new Text("Cédula : ${widget.list[widget.index]['cedula']}", style: new TextStyle(fontSize: 18.0),),
+                new Text("Teléfono : ${widget.list[widget.index]['telefono']}", style: new TextStyle(fontSize: 18.0),),
+                new Text("Dirección : ${widget.list[widget.index]['direccion']}", style: new TextStyle(fontSize: 18.0),),
                 new Padding(padding: const EdgeInsets.only(top: 30.0),),
 
                 new Row(

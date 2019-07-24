@@ -16,6 +16,10 @@ class _EditDataState extends State<EditData> {
 
   TextEditingController controllerCuenta;
   TextEditingController controllerPassword;
+  TextEditingController controllerNombre;
+  TextEditingController controllerCedula;
+  TextEditingController controllerDireccion;
+  TextEditingController controllerTelefono;
 
 
 
@@ -25,6 +29,11 @@ class _EditDataState extends State<EditData> {
       "id_usuario": widget.list[widget.index]['id_usuario'],
       "cuenta_usuario": controllerCuenta.text,
       "password_usuario": controllerPassword.text,
+      "nombre": controllerNombre.text,
+      "cedula": controllerCedula.text,
+      "direccion": controllerDireccion.text,
+      "telefono": controllerTelefono.text,
+
 
     });
   }
@@ -34,6 +43,12 @@ class _EditDataState extends State<EditData> {
     void initState() {
       controllerCuenta= new TextEditingController(text: widget.list[widget.index]['cuenta_usuario'] );
       controllerPassword= new TextEditingController(text: widget.list[widget.index]['password_usuario'] );
+      controllerNombre= new TextEditingController(text: widget.list[widget.index]['nombre'] );
+      controllerCedula= new TextEditingController(text: widget.list[widget.index]['cedula'] );
+      controllerDireccion= new TextEditingController(text: widget.list[widget.index]['direccion'] );
+      controllerTelefono= new TextEditingController(text: widget.list[widget.index]['telefono'] );
+      
+
       super.initState();
     }
 
@@ -52,12 +67,32 @@ class _EditDataState extends State<EditData> {
                 new TextField(
                   controller: controllerCuenta,
                   decoration: new InputDecoration(
-                      hintText: "Nombre de la cuenta", labelText: "Nombre de la cuenta"),
+                      hintText: "Nombre cuenta", labelText: "Nombre de la cuenta"),
+                ),
+                new TextField(
+                  controller: controllerNombre,
+                  decoration: new InputDecoration(
+                      hintText: "Nombre de usuario", labelText: "Nombre Usuario"),
                 ),
                 new TextField(
                   controller: controllerPassword,
                   decoration: new InputDecoration(
-                      hintText: "Password de la cuenta", labelText: "Password de la cuenta"),
+                      hintText: "Password ", labelText: "password"),
+                ),
+                new TextField(
+                  controller: controllerCedula,
+                  decoration: new InputDecoration(
+                      hintText: "Cedula", labelText: "cedula"),
+                ),
+                new TextField(
+                  controller: controllerDireccion,
+                  decoration: new InputDecoration(
+                      hintText: "Direcion ", labelText: "direccion"),
+                ),
+                new TextField(
+                  controller: controllerTelefono,
+                  decoration: new InputDecoration(
+                      hintText: "Telefono", labelText: "Telefono"),
                 ),
                 new Padding(
                   padding: const EdgeInsets.all(10.0),

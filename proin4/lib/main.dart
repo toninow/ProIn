@@ -49,7 +49,9 @@ Future<List> _login() async {
 
   if(datauser.length==0){
     setState(() {
-          msg="Login Fail";
+         AlertDialog(
+          content: new Text("Usuario o password incorrectos"),
+         );
         });
   }else{
     if(datauser[0]['id_tipo']=='1'){
