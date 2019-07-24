@@ -63,7 +63,7 @@ void confirm (){
                 new Padding(padding: const EdgeInsets.only(top: 30.0),),
                 new Text(widget.list[widget.index]['cuenta_usuario'], style: new TextStyle(fontSize: 20.0),),
                 new Text("Tipo de usuario : ${widget.list[widget.index]['nombre_tipo_usuario']}", style: new TextStyle(fontSize: 18.0),),
-                new Text("Nombre : ${widget.list[widget.index]['nombre_usuario']}", style: new TextStyle(fontSize: 18.0),),
+                 new Text("Nombre : ${widget.list[widget.index]['nombre']}", style: new TextStyle(fontSize: 18.0),),
                 new Padding(padding: const EdgeInsets.only(top: 30.0),),
 
                 new Row(
