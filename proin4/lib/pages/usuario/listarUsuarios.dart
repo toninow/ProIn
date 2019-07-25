@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'package:proin4/pages/usuario/detail.dart';
+import './detail.dart';
 
 import 'dart:async';
 import 'dart:convert';
@@ -13,7 +13,8 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   Future<List> getData() async {
-    final response = await http.get("http://192.168.1.4/ticket_reservation/mobile/getData.php");
+    final response = await http.get("http://192.168.1.4/ticket_reservation/mobile/usuario/getData.php");
+    print('body: [${response.body}]');
     return json.decode(response.body);
   }
 

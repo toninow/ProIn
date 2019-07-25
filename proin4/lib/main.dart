@@ -3,8 +3,8 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'package:proin4/bodegaPage.dart';
-import 'package:proin4/powerPage.dart';
+import './bodegaPage.dart';
+import './powerPage.dart';
 
 void main() => runApp(new MyApp());
 
@@ -40,7 +40,7 @@ TextEditingController pass=new TextEditingController();
 String msg='';
 
 Future<List> _login() async {
-  final response = await http.post("http://192.168.1.4/ticket_reservation/mobile/login.php", body: {
+  final response = await http.post("http://192.168.1.4/ticket_reservation/mobile/bdd/login.php", body: {
     "cuenta_usuario": user.text,
     "password_usuario": pass.text,
   });

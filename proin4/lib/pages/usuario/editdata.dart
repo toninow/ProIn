@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'package:proin4/pages/usuario/listarUsuarios.dart';
+import './listarUsuarios.dart';
 
 class EditData extends StatefulWidget {
   final List list;
@@ -24,17 +24,15 @@ class _EditDataState extends State<EditData> {
 
 
   void editData() {
-    var url="http://192.168.1.4/ticket_reservation/mobile/editdata.php";
+    var url="http://192.168.1.4/ticket_reservation/mobile/usuario/editdata.php";
     http.post(url,body: {
       "id_usuario": widget.list[widget.index]['id_usuario'],
       "cuenta_usuario": controllerCuenta.text,
       "password_usuario": controllerPassword.text,
       "nombre": controllerNombre.text,
       "cedula": controllerCedula.text,
-      "direccion": controllerDireccion.text,
       "telefono": controllerTelefono.text,
-
-
+      "direccion": controllerDireccion.text,
     });
   }
 
@@ -45,8 +43,9 @@ class _EditDataState extends State<EditData> {
       controllerPassword= new TextEditingController(text: widget.list[widget.index]['password_usuario'] );
       controllerNombre= new TextEditingController(text: widget.list[widget.index]['nombre'] );
       controllerCedula= new TextEditingController(text: widget.list[widget.index]['cedula'] );
-      controllerDireccion= new TextEditingController(text: widget.list[widget.index]['direccion'] );
       controllerTelefono= new TextEditingController(text: widget.list[widget.index]['telefono'] );
+      controllerDireccion= new TextEditingController(text: widget.list[widget.index]['direccion'] );
+      
       
 
       super.initState();
@@ -59,6 +58,7 @@ class _EditDataState extends State<EditData> {
         title: new Text("Editar usuario"),
       ),
       body: Padding(
+        
         padding: const EdgeInsets.all(10.0),
         child: ListView(
           children: <Widget>[
@@ -70,14 +70,14 @@ class _EditDataState extends State<EditData> {
                       hintText: "Nombre cuenta", labelText: "Nombre de la cuenta"),
                 ),
                 new TextField(
-                  controller: controllerNombre,
-                  decoration: new InputDecoration(
-                      hintText: "Nombre de usuario", labelText: "Nombre Usuario"),
-                ),
-                new TextField(
                   controller: controllerPassword,
                   decoration: new InputDecoration(
                       hintText: "Password ", labelText: "password"),
+                ),
+                new TextField(
+                  controller: controllerNombre,
+                  decoration: new InputDecoration(
+                      hintText: "Nombre de usuario", labelText: "Nombre Usuario"),
                 ),
                 new TextField(
                   controller: controllerCedula,
@@ -85,14 +85,14 @@ class _EditDataState extends State<EditData> {
                       hintText: "Cedula", labelText: "cedula"),
                 ),
                 new TextField(
-                  controller: controllerDireccion,
-                  decoration: new InputDecoration(
-                      hintText: "Direcion ", labelText: "direccion"),
-                ),
-                new TextField(
                   controller: controllerTelefono,
                   decoration: new InputDecoration(
                       hintText: "Telefono", labelText: "Telefono"),
+                ),
+                new TextField(
+                  controller: controllerDireccion,
+                  decoration: new InputDecoration(
+                      hintText: "Direcion ", labelText: "direccion"),
                 ),
                 new Padding(
                   padding: const EdgeInsets.all(10.0),

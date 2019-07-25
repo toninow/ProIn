@@ -14,7 +14,7 @@ class _AddDataState extends State<AddData> {
   var _formKey = GlobalKey<FormState>();
 
   void addData() {
-    var url = "http://192.168.1.4/ticket_reservation/mobile/adddata.php";
+    var url = "http://192.168.1.4/ticket_reservation/mobile/usuario/adddata.php";
 
     http.post(url, body: {
       "cuenta_usuario": controllerUsername.text,
@@ -25,7 +25,7 @@ class _AddDataState extends State<AddData> {
   }
   
   String _mySelection;
-  List<Map> _myJson = [{"id":0,"name":"ventas"},{"id":1,"name":"admin"}];
+  List<Map> _myJson = [{"id_tipo":1,"name":"administrador"},{"id_tipo":2,"name":"cajero"}];
 
   @override
   Widget build(BuildContext context) {
@@ -59,7 +59,7 @@ class _AddDataState extends State<AddData> {
                       controller: controllerPassword,
                           validator: (value) {
                             if (value.isEmpty) return "Ingresa una Contraseña";
-                          },
+                          } ,
                       decoration: new InputDecoration(
                         hintText: "Contraseña", labelText: "Contraseña",
                       ),
