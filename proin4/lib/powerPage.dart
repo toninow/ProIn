@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:proin4/pages/listarUsuarios.dart';
+import 'package:proin4/pages/usuario/listarUsuarios.dart';
+import 'package:proin4/pages/usuario/registroUsuarios.dart';
 
 class SuperV extends StatelessWidget {
  
@@ -36,7 +37,7 @@ class SuperV extends StatelessWidget {
                 padding: EdgeInsets.all(7.0),
                 child: new RawMaterialButton(
                   onPressed: () {
-                    Navigator.pushReplacementNamed(context, '/LoginPage');
+                    Navigator.push(context, new MaterialPageRoute(builder: (context) =>new AddData()));
                   },
                   child: new Icon(
                     Icons.list,

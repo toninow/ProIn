@@ -17,9 +17,9 @@ class _AddDataState extends State<AddData> {
     var url = "http://192.168.1.4/ticket_reservation/mobile/adddata.php";
 
     http.post(url, body: {
-      "username": controllerUsername.text,
-      "password": controllerPassword.text,
-      "nivel": _mySelection.toString(), //aqui traemos el DropdownMenuItem lo llamamos _mySelection este es como el controller
+      "cuenta_usuario": controllerUsername.text,
+      "password_usuario": controllerPassword.text,
+      "id_tipo": _mySelection.toString(), //aqui traemos el DropdownMenuItem lo llamamos _mySelection este es como el controller
       //"nivel": controllerNivel.text
     });
   }
@@ -122,7 +122,7 @@ class _AddDataState extends State<AddData> {
                     shape: new RoundedRectangleBorder(
                         borderRadius: new BorderRadius.circular(30.0)),
                     onPressed: () {
-                      Navigator.pushReplacementNamed(context, '/adminPage');
+                      Navigator.pushReplacementNamed(context, './powerPagee');
                     },
                   )
                 ],

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'package:proin4/pages/listarUsuarios.dart';
+import 'package:proin4/pages/usuario/listarUsuarios.dart';
 
 class EditData extends StatefulWidget {
   final List list;
