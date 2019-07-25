@@ -28,7 +28,6 @@ class _EditDataState extends State<EditData> {
     http.post(url,body: {
       "id_usuario": widget.list[widget.index]['id_usuario'],
       "cuenta_usuario": controllerCuenta.text,
-      "password_usuario": controllerPassword.text,
       "nombre": controllerNombre.text,
       "cedula": controllerCedula.text,
       "telefono": controllerTelefono.text,
@@ -40,7 +39,6 @@ class _EditDataState extends State<EditData> {
   @override
     void initState() {
       controllerCuenta= new TextEditingController(text: widget.list[widget.index]['cuenta_usuario'] );
-      controllerPassword= new TextEditingController(text: widget.list[widget.index]['password_usuario'] );
       controllerNombre= new TextEditingController(text: widget.list[widget.index]['nombre'] );
       controllerCedula= new TextEditingController(text: widget.list[widget.index]['cedula'] );
       controllerTelefono= new TextEditingController(text: widget.list[widget.index]['telefono'] );
@@ -68,11 +66,6 @@ class _EditDataState extends State<EditData> {
                   controller: controllerCuenta,
                   decoration: new InputDecoration(
                       hintText: "Nombre cuenta", labelText: "Nombre de la cuenta"),
-                ),
-                new TextField(
-                  controller: controllerPassword,
-                  decoration: new InputDecoration(
-                      hintText: "Password ", labelText: "password"),
                 ),
                 new TextField(
                   controller: controllerNombre,

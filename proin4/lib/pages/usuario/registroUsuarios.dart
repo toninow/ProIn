@@ -1,5 +1,6 @@
 ﻿import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import '../../powerPage.dart';
 
 class AddData extends StatefulWidget {
   @override
@@ -9,6 +10,10 @@ class AddData extends StatefulWidget {
 class _AddDataState extends State<AddData> {
   TextEditingController controllerUsername = new TextEditingController();
   TextEditingController controllerPassword = new TextEditingController();
+  TextEditingController controllerNombre = new TextEditingController();
+  TextEditingController controllerCedula = new TextEditingController();
+  TextEditingController controllerDireccion = new TextEditingController();
+  TextEditingController controllerTelefono = new TextEditingController();
   //TextEditingController controllerNivel = new TextEditingController();
 
   var _formKey = GlobalKey<FormState>();
@@ -19,6 +24,10 @@ class _AddDataState extends State<AddData> {
     http.post(url, body: {
       "cuenta_usuario": controllerUsername.text,
       "password_usuario": controllerPassword.text,
+      "nombre": controllerNombre.text,
+      "cedula": controllerCedula.text,
+      "telefono": controllerTelefono.text,
+      "direccion": controllerDireccion.text,
       "id_tipo": _mySelection.toString(), //aqui traemos el DropdownMenuItem lo llamamos _mySelection este es como el controller
       //"nivel": controllerNivel.text
     });
@@ -31,7 +40,7 @@ class _AddDataState extends State<AddData> {
   Widget build(BuildContext context) {
     return new Scaffold(
       appBar: new AppBar(
-        title: new Text("Adicionar Usuarios"),
+        title: new Text("Registro de Usuarios"),
       ),
       body: Form(
         key: _formKey,
@@ -65,20 +74,56 @@ class _AddDataState extends State<AddData> {
                       ),
                     ),
                   ),
+                  new ListTile(
+                    leading: const Icon(Icons.person, color: Colors.black),
+                    title: new TextFormField(
+                      controller: controllerNombre,
+                      decoration: new InputDecoration(
+                        hintText: "Nombre", labelText: "Nombre",
+                      ),
+                    ),
+                  ),
+                  new ListTile(
+                    leading: const Icon(Icons.person, color: Colors.black),
+                    title: new TextFormField(
+                      controller: controllerCedula,
+                      decoration: new InputDecoration(
+                        hintText: "Cedula", labelText: "Cedula",
+                      ),
+                    ),
+                  ),
+                  new ListTile(
+                    leading: const Icon(Icons.person, color: Colors.black),
+                    title: new TextFormField(
+                      controller: controllerDireccion,
+                      decoration: new InputDecoration(
+                        hintText: "Direccion", labelText: "Direccion",
+                      ),
+                    ),
+                  ),
+                  new ListTile(
+                    leading: const Icon(Icons.person, color: Colors.black),
+                    title: new TextFormField(
+                      controller: controllerTelefono,
+                      decoration: new InputDecoration(
+                        hintText: "Telefono", labelText: "Telefono",
+                      ),
+                    ),
+                  ),
                  Row(
                    children: <Widget>[
                      new Container(
                        margin: EdgeInsets.only(left: 20.0),
                         child: Icon(Icons.list),
                      ),
-                     VerticalDivider(width: 40.0,),
+                     VerticalDivider(width: 50.0,),
                      new Container(                   
                        //margin: EdgeInsets.only(right: 80.0),
                        height: 50.0,
                        width: 100.0,
                       child: new DropdownButton<String>(
                             isDense: true,
-                            hint: new Text("Nivel"),
+                            hint: new Text("Tipo de usuario"),
                             iconSize: 40.0,
                             elevation: 10,
                             value: _mySelection,
@@ -105,7 +150,7 @@ class _AddDataState extends State<AddData> {
                    padding: const EdgeInsets.all(30.0),
                  ),              
                   new RaisedButton(
-                    child: new Text("Agregar"),
+                    child: new Text("Agregar Usuario"),
                     color: Colors.blueAccent,
                     shape: new RoundedRectangleBorder(
                         borderRadius: new BorderRadius.circular(30.0)),
@@ -122,7 +167,7 @@ class _AddDataState extends State<AddData> {
                     shape: new RoundedRectangleBorder(
                         borderRadius: new BorderRadius.circular(30.0)),
                     onPressed: () {
-                      Navigator.pushReplacementNamed(context, './powerPagee');
+                      Navigator.push(context, new MaterialPageRoute(builder: (context) =>new SuperV()));
                     },
                   )
                 ],
