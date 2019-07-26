@@ -23,7 +23,8 @@ class _EditDataState extends State<EditData> {
 
 
   void editData() {
-    var url="http://192.168.43.162/ticket_reservation/mobile/usuario/editdata.php";
+    var url="http://192.168.1.4/ticket_reservation/mobile/usuario/editdata.php";
+    //var url="http://192.168.43.162/ticket_reservation/mobile/usuario/editdata.php";
     http.post(url,body: {
       "id_usuario": widget.list[widget.index]['id_usuario'],
       "cuenta_usuario": controllerCuenta.text,

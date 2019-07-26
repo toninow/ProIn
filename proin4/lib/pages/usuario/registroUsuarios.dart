@@ -1,7 +1,6 @@
 ﻿import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import '../../powerPage.dart';
-import 'dart:convert';
 
 class AddData extends StatefulWidget {
   @override
@@ -19,11 +18,11 @@ class _AddDataState extends State<AddData> {
   //TextEditingController controllerNivel = new TextEditingController();
 
   var _formKey = GlobalKey<FormState>();
-// var url = "http://192.168.1.4/ticket_reservation/mobile/usuario/adddata.php";
+ 
   void addData() {
     
-    var url = "http://192.168.43.162/ticket_reservation/mobile/usuario/adddata.php";
-
+    //var url = "http://192.168.43.162/ticket_reservation/mobile/usuario/adddata.php";
+  var url = "http://192.168.1.4/ticket_reservation/mobile/usuario/adddata.php";     
     http.post(url, body: {
       "cuenta_usuario": controllerUsername.text,
       "password_usuario": controllerPassword.text,
@@ -36,9 +35,6 @@ class _AddDataState extends State<AddData> {
     });
   }
   
-  String _mySelection;
-  List<Map> _myJson = [{"id_tipo":1,"name":"administrador"},{"id_tipo":2,"name":"cajero"}];
-
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
