@@ -50,7 +50,27 @@ class SuperV extends StatelessWidget {
                   padding: const EdgeInsets.all(7.0),
                 ),
               ),
-
+              Container(
+                child: FlatButton(
+                  onPressed: () {
+                    Navigator.pushReplacementNamed(context, '/reservaciones/listarReservacion');
+                  },
+                  shape: new RoundedRectangleBorder(
+                      borderRadius: new BorderRadius.circular(50.0)),
+                  color: Colors.orange,
+                  padding: EdgeInsets.all(10.0),
+                  child: Column(
+                    // Replace with a Row for horizontal icon + text
+                    children: <Widget>[
+                      Icon(
+                        Icons.airplanemode_active,
+                        size: 57,
+                      ),
+                      Text("Clientes"),
+                    ],
+                  ),
+                ),
+              ),
             ],
           ),
         ]
