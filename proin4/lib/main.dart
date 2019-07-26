@@ -38,9 +38,10 @@ TextEditingController user=new TextEditingController();
 TextEditingController pass=new TextEditingController();
 
 String msg='';
-
+//final response = await http.post("http://192.168.1.4/ticket_reservation/mobile/bdd/login.php", body: { servidor local
 Future<List> _login() async {
-  final response = await http.post("http://192.168.1.4/ticket_reservation/mobile/bdd/login.php", body: {
+   //servidor movil
+  final response = await http.post("http://192.168.43.162/ticket_reservation/mobile/bdd/login.php", body: {
     "cuenta_usuario": user.text,
     "password_usuario": pass.text,
   });

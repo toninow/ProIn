@@ -10,10 +10,10 @@ class Home extends StatefulWidget {
   @override
   _HomeState createState() => new _HomeState();
 }
-
+//final response = await http.get("http://192.168.1.4/ticket_reservation/mobile/usuario/getData.php");
 class _HomeState extends State<Home> {
   Future<List> getData() async {
-    final response = await http.get("http://192.168.1.4/ticket_reservation/mobile/usuario/getData.php");
+    final response = await http.get("http://192.168.43.162/ticket_reservation/mobile/usuario/getData.php");
     print('body: [${response.body}]');
     return json.decode(response.body);
   }
