@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import './detail.dart';
+import './detailReservacion.dart';
 
 import 'dart:async';
 import 'dart:convert';
 
 
-class Home extends StatefulWidget {
+class Home1 extends StatefulWidget {
   @override
   _HomeState createState() => new _HomeState();
 }
 
-class _HomeState extends State<Home> {
+class _HomeState extends State<Home1> {
   Future<List> getData() async {
-    //final response = await http.get("http://192.168.43.162/ticket_reservation/mobile/usuario/getData.php");
-    final response = await http.get("http://192.168.1.4/ticket_reservation/mobile/usuario/getData.php");
+    final response = await http.get("http://172.16.11.192/ticket_reservation/mobile/reservacion/getDataReservacion.php");
+    //final response = await http.get("http://192.168.1.4/ticket_reservation/mobile/reservacion/getDataReservacion.php");
     
     print('body: [${response.body}]');
     return json.decode(response.body);
@@ -24,7 +24,7 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return new Scaffold(
       appBar: new AppBar(
-        title: new Text("Listado de Usuarios"),
+        title: new Text("Listado de Reservaciones"),
       ),
       body: new FutureBuilder<List>(
         future: getData(),
@@ -65,7 +65,7 @@ class ItemList extends StatelessWidget {
             child: new Card(
               child: new ListTile(
                 title: new Text(
-                  'Usuario : ${list[i]['cuenta_usuario']}',
+                  'Código Nº: ${list[i]['codigo_reservacion']}',
                   style: TextStyle(fontSize: 25.0, color: Colors.orangeAccent),
                 ),
                 
@@ -75,7 +75,7 @@ class ItemList extends StatelessWidget {
                   color: Colors.orangeAccent,
                 ),
                 subtitle: new Text(
-                  "Nivel de acceso : ${list[i]['nombre_tipo_usuario']}",
+                  "Fecha Reservación : ${list[i]['fecha_reservacion']}",
                   style: TextStyle(fontSize: 20.0, color: Colors.black),
                 ),
               ),

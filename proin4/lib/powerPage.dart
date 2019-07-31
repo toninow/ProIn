@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:proin4/pages/usuario/listarUsuarios.dart';
 import 'package:proin4/pages/usuario/registroUsuarios.dart';
+import 'package:proin4/pages/reservaciones/listarReservacion.dart';
 
 class SuperV extends StatelessWidget {
  
@@ -15,62 +16,80 @@ class SuperV extends StatelessWidget {
         children: <Widget>[          
           Row(            
             //ROW 1
-            children: [             
+            children: [
               Container(
-                padding: EdgeInsets.all(8.0),
-                child: new RawMaterialButton(
-                  onPressed: () {
+                padding: EdgeInsets.all(15.0),
+                child: Container(
+                  child: FlatButton(
+                    onPressed: () {
                     Navigator.push(context, new MaterialPageRoute(builder: (context) =>new Home()));
                   },
-                  child: new Icon(
-                    Icons.people,
-                    color: Colors.blueAccent,
-                    size: 63.0,
+                    shape: new RoundedRectangleBorder(
+                        borderRadius: new BorderRadius.circular(50.0)),
+                    color: Colors.orange,
+                    padding: EdgeInsets.all(10.0),
+                    child: Column(
+                      // Replace with a Row for horizontal icon + text
+                      children: <Widget>[
+                        Icon(
+                          Icons.people,
+                          size: 57,
+                        ),
+                        Text("Usuarios"),
+                      ],
+                    ),
                   ),
-                  shape: new CircleBorder(),
-                  elevation: 2.0,
-                  fillColor: Colors.white,
-                  padding: const EdgeInsets.all(7.0),
                 ),
-              ),
+              ),              
               Container(
-                padding: EdgeInsets.all(7.0),
-                child: new RawMaterialButton(
-                  onPressed: () {
+                padding: EdgeInsets.all(15.0),
+                child: Container(
+                  child: FlatButton(
+                    onPressed: () {
                     Navigator.push(context, new MaterialPageRoute(builder: (context) =>new AddData()));
                   },
-                  child: new Icon(
-                    Icons.list,
-                    color: Colors.grey[300],
-                    size: 63.0,
+                    shape: new RoundedRectangleBorder(
+                        borderRadius: new BorderRadius.circular(50.0)),
+                    color: Colors.green[200],
+                    padding: EdgeInsets.all(10.0),
+                    child: Column(
+                      // Replace with a Row for horizontal icon + text
+                      children: <Widget>[
+                        Icon(
+                          Icons.plus_one,
+                          size: 57,
+                        ),
+                        Text("Registrar"),
+                      ],
+                    ),
                   ),
-                  shape: new CircleBorder(),
-                  elevation: 2.0,
-                  fillColor: Colors.white,
-                  padding: const EdgeInsets.all(7.0),
                 ),
-              ),
+              ),                            
               Container(
-                child: FlatButton(
-                  onPressed: () {
-                    Navigator.pushReplacementNamed(context, '/reservaciones/listarReservacion');
+                padding: EdgeInsets.all(15.0),
+                child: Container(
+                  child: FlatButton(
+                    onPressed: () {
+                    Navigator.push(context, new MaterialPageRoute(builder: (context) =>new Home1()));
                   },
-                  shape: new RoundedRectangleBorder(
-                      borderRadius: new BorderRadius.circular(50.0)),
-                  color: Colors.orange,
-                  padding: EdgeInsets.all(10.0),
-                  child: Column(
-                    // Replace with a Row for horizontal icon + text
-                    children: <Widget>[
-                      Icon(
-                        Icons.airplanemode_active,
-                        size: 57,
-                      ),
-                      Text("Clientes"),
-                    ],
+                    shape: new RoundedRectangleBorder(
+                        borderRadius: new BorderRadius.circular(50.0)),
+                    color: Colors.yellow[200],
+                    padding: EdgeInsets.all(10.0),
+                    child: Column(
+                      // Replace with a Row for horizontal icon + text
+                      children: <Widget>[
+                        Icon(
+                          Icons.today,
+                          size: 57,
+                        ),
+                        Text("Reservas"),
+                      ],
+                    ),
                   ),
                 ),
-              ),
+              ),     
+
             ],
           ),
         ]

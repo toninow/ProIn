@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:http/http.dart' as http;
-import './listarPreferencia.dart';
+import './listarReservacion.dart';
 
 class Detail extends StatefulWidget {
   List list;
@@ -14,17 +14,17 @@ class Detail extends StatefulWidget {
 class _DetailState extends State<Detail> {
 
 void deleteData(){
-  //var url="http://192.168.43.162/ticket_reservation/mobile/usuario/deleteData.php";
-  var url="http://192.168.1.4/ticket_reservation/mobile/preferencia/deletePreferencia.php";
+  var url="http://172.16.11.192/ticket_reservation/mobile/reservacion/deleteDataReservacion.php";
+  //var url="http://172.16.11.192/ticket_reservation/mobile/preferencia/deleteReservacion.php";
   http.post(url, body: {
-    'id_usuario': widget.list[widget.index]['id_usuario']
+    'id_reservacion': widget.list[widget.index]['id_reservacion']
   });
 }
 
 
 void confirm (){
   AlertDialog alertDialog = new AlertDialog(
-    content: new Text("estas seguro que deseas eleminarlo? '${widget.list[widget.index]['cuenta_usuario']}'"),
+    content: new Text("estas seguro que deseas eleminarlo? '${widget.list[widget.index]['id_reservacion']}'"),
     actions: <Widget>[
       new RaisedButton(
         child: new Text("OK ELIMINARLO !",style: new TextStyle(color: Colors.black),),
@@ -33,7 +33,7 @@ void confirm (){
           deleteData();
           Navigator.of(context).push(
             new MaterialPageRoute(
-              builder: (BuildContext context)=> new Home(),
+              builder: (BuildContext context)=> new Home1(),
             )
           );
         },
@@ -52,7 +52,7 @@ void confirm (){
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-      appBar: new AppBar(title: new Text("información de ${widget.list[widget.index]['cuenta_usuario']}")),
+      appBar: new AppBar(title: new Text("información de ${widget.list[widget.index]['codigo_reservacion']}")),
       body: new Container(
         height: 270.0, 
         padding: const EdgeInsets.all(5.0),
@@ -60,35 +60,24 @@ void confirm (){
           child: new Center(
             child: new Column(
               children: <Widget>[
-
                 new Padding(padding: const EdgeInsets.only(top: 30.0),),
-                new Text(widget.list[widget.index]['cuenta_usuario'], style: new TextStyle(fontSize: 20.0),),
-                new Text("Tipo de usuario : ${widget.list[widget.index]['nombre_tipo_usuario']}", style: new TextStyle(fontSize: 18.0),),
-                new Text("Nombre : ${widget.list[widget.index]['nombre']}", style: new TextStyle(fontSize: 18.0),),
-                new Text("Cédula : ${widget.list[widget.index]['cedula']}", style: new TextStyle(fontSize: 18.0),),
-                new Text("Teléfono : ${widget.list[widget.index]['telefono']}", style: new TextStyle(fontSize: 18.0),),
-                new Text("Dirección : ${widget.list[widget.index]['direccion']}", style: new TextStyle(fontSize: 18.0),),
+                new Text(widget.list[widget.index]['codigo_reservacion'], style: new TextStyle(fontSize: 20.0),),
+                new Text("Origen : ${widget.list[widget.index]['nombre_origen']}", style: new TextStyle(fontSize: 18.0),),
+                new Text("Destino : ${widget.list[widget.index]['nombre_destino']}", style: new TextStyle(fontSize: 18.0),),
+                new Text("Unidad : ${widget.list[widget.index]['bus']}", style: new TextStyle(fontSize: 18.0),),
+                new Text("Estado : ${widget.list[widget.index]['nombre_estado']}", style: new TextStyle(fontSize: 18.0),),
                 new Padding(padding: const EdgeInsets.only(top: 30.0),),
-
-                new Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: <Widget>[
-                    new RaisedButton(
-                      child: new Text("EDITAR"),
-                      color: Colors.green,
-                      onPressed: ()=>Navigator.of(context).push(
-                        new MaterialPageRoute(
-                          builder: (BuildContext context)=>new EditData(list: widget.list, index: widget.index,),
-                        )
-                      ),
-                    ),
-                    new RaisedButton(
-                      child: new Text("ELIMINAR"),
-                      color: Colors.red,
-                      onPressed: ()=>confirm(),
-                    ),
-                  ],
-                )
+                // new Row(
+                //   mainAxisSize: MainAxisSize.min,
+                //   children: <Widget>[
+                  
+                //     new RaisedButton(
+                //       child: new Text("ELIMINAR"),
+                //       color: Colors.red,
+                //       onPressed: ()=>confirm(),
+                //     ),
+                //   ],
+                // )
               ],
             ),
           ),

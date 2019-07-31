@@ -41,8 +41,8 @@ String msg='';
  
 Future<List> _login() async {
    //servidor movil
- // final response = await http.post("http://192.168.43.162/ticket_reservation/mobile/bdd/login.php", body: {
-final response = await http.post("http://192.168.1.4/ticket_reservation/mobile/bdd/login.php", body: {
+  final response = await http.post("http://172.16.11.192/ticket_reservation/mobile/bdd/login.php", body: {
+//final response = await http.post("http://172.16.11.192/ticket_reservation/mobile/bdd/login.php", body: {
     "cuenta_usuario": user.text,
     "password_usuario": pass.text,
   });
@@ -73,6 +73,14 @@ final response = await http.post("http://192.168.1.4/ticket_reservation/mobile/b
   @override
   Widget build(BuildContext context) {
     Text("",style: TextStyle(fontSize: 18.0),);
+    Text("",style: TextStyle(fontSize: 18.0),);
+    Text("",style: TextStyle(fontSize: 18.0),);
+    Text("",style: TextStyle(fontSize: 18.0),);
+    Text("",style: TextStyle(fontSize: 18.0),);
+    Text("",style: TextStyle(fontSize: 18.0),);
+    Text("",style: TextStyle(fontSize: 18.0),);
+    Text("",style: TextStyle(fontSize: 18.0),);
+    
      final logo = Hero(
     
       tag: 'hero',

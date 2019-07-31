@@ -21,8 +21,8 @@ class _AddDataState extends State<AddData> {
  
   void addData() {
     
-    //var url = "http://192.168.43.162/ticket_reservation/mobile/usuario/adddata.php";
-  var url = "http://192.168.1.4/ticket_reservation/mobile/usuario/adddata.php";     
+    var url = "http://172.16.11.192/ticket_reservation/mobile/usuario/adddata.php";
+  //var url = "http:/172.16.11.192/ticket_reservation/mobile/usuario/adddata.php";     
     http.post(url, body: {
       "cuenta_usuario": controllerUsername.text,
       "password_usuario": controllerPassword.text,
