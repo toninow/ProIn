@@ -1,0 +1,67 @@
+----
+DELIMITER $$
+CREATE PROCEDURE crud_tabla_usuario(
+       accion_del_usuario varchar(25),
+       n_id_usuario int (11),
+       n_cuenta_usuario varchar(50),
+       n_password_usuario varchar (50),
+       n_nombre varchar (100),
+       n_cedula varchar (10),
+       n_direccion varchar (100),
+       n_telefono varchar (10),
+       n_id_tipo int (11), 
+)
+BEGIN
+    -- SELECT
+
+
+    IF accion_del_usuario = "SELECT" THEN
+            SELECT 
+                id_usuario,
+                cuenta_usuario,
+                password_usuario,
+                nombre,
+                cedula,
+                direccion,
+                telefono,
+                id_tipo
+            FROM usuario;
+     END IF;
+    -- INSERT
+
+    SET @Respuesta = 'EL N° DE LICENCIA YA EXISTE'
+
+    IF accion_del_usuario = "INSERT" THEN
+        INSERT INTO usuario ( id_usuario, cuenta_usuario, password_usuario, nombre, cedula, direccion, telefono, id_tipo)
+        VALUES (n_id_usuario, n_cuenta_usuario, password_usuario, n_nombre, n_cedula, n_direccion, n_telefono, n_id_tipo);
+    END IF;
+    
+    -- UPDATE
+    IF accion_del_usuario = "UPDATE" THEN
+        UPDATE usuarios
+        SET cuenta_usuario = n_cuenta_usuario, password_usuario = n_password_usuario, nombre = n_nombre, cedula = n_cedula, direccion = n_direccion, telefono = n_telefono, id_tipo = n_id_tipo
+        WHERE id_usuario = n_id_usuario ;
+    END IF;
+     
+    -- DELETE
+    IF accion_del_usuario = "DELETE" THEN
+        DELETE FROM unidad
+        WHERE id_usuario = n_id_usuario;
+    END IF;
+END  $$
+DELIMITER ;
+
+
+-- SELECT
+CALL reservaciones_buses.crud_tabla_usuario("SELECT", NULL, NULL, NULL, NULL, null, null, null, null);
+ 
+-- INSERT
+CALL reservaciones_buses.crud_tabla_usuario("INSERT", null, 'caj1', '1234', 'manuel lopez obrador', '7777', 'av maldonado', '123456', 1);
+ 
+-- UPDATE
+CALL tienda_buses.usuarios_CRUD("UPDATE", 19, 'caj1', 'manuel lopez obrador', '7777', 'av maldonado', '123456', 1);
+ 
+-- DELETE
+CALL tienda.usuarios_CRUD("DELETE", 1);
+
+
